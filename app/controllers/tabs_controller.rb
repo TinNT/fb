@@ -1,12 +1,14 @@
 class TabsController < ApplicationController
   # GET /tabs
   # GET /tabs.xml
+  layout false
+  
   def index
     @tabs = Tab.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @tabs }
+      format.fbml
     end
   end
 
@@ -17,7 +19,7 @@ class TabsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @tab }
+      format.fbml
     end
   end
 
@@ -28,7 +30,7 @@ class TabsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @tab }
+      format.fbml
     end
   end
 
@@ -45,11 +47,9 @@ class TabsController < ApplicationController
     respond_to do |format|
       if @tab.save
         flash[:notice] = 'Tab was successfully created.'
-        format.html { redirect_to(@tab) }
-        format.xml  { render :xml => @tab, :status => :created, :location => @tab }
+        format.fbml { redirect_to(@tab) }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @tab.errors, :status => :unprocessable_entity }
+        format.fbml { render :action => "new" }
       end
     end
   end
@@ -62,18 +62,16 @@ class TabsController < ApplicationController
     respond_to do |format|
       if @tab.update_attributes(params[:tab])
         flash[:notice] = 'Tab was successfully updated.'
-        format.html { redirect_to(@tab) }
-        format.xml  { head :ok }
+        format.fbml { redirect_to(@tab) }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @tab.errors, :status => :unprocessable_entity }
+        format.fbml { render :action => "edit" }
       end
     end
   end
   
   def fbml
     respond_to do |format|
-      format.fbml {render :layout => false }
+      format.fbml
     end
   end
 
@@ -83,9 +81,8 @@ class TabsController < ApplicationController
     @tab = Tab.find(params[:id])
     @tab.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(tabs_url) }
-      format.xml  { head :ok }
+    respond_to do |format| 
+      format.fbml { redirect_to(tabs_url) }
     end
   end
 end
