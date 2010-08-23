@@ -1,0 +1,10 @@
+tmp/*
+log/*
+quality
+config/database.local.yml
+mkmf.log
+rerun.txt
+coverage
+.DS_Store
+dump.rdb
+nbproject/*
