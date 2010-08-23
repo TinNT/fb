@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fb_page_id: 1
+  care_url: MyString
+
+two:
+  fb_page_id: 1
+  care_url: MyString

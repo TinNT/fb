@@ -1,0 +1,20 @@
+<h1>Editing tab</h1>
+
+<% form_for(@tab) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fb_page_id %><br />
+    <%= f.text_field :fb_page_id %>
+  </p>
+  <p>
+    <%= f.label :care_url %><br />
+    <%= f.text_field :care_url %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tab %> |
+<%= link_to 'Back', tabs_path %>
