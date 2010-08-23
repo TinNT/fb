@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tabs, :member => {:fbml => :any}
+  map.resources :tabs, :collection => {:fbml => :any}
 
   # The priority is based upon order of creation: first created -> highest priority.
 
