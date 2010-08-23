@@ -72,7 +72,9 @@ class TabsController < ApplicationController
   end
   
   def fbml
-    render :layout => false
+    respond_to do |format|
+      format.fbml {render :layout => false }
+    end
   end
 
   # DELETE /tabs/1
