@@ -70,6 +70,10 @@ class TabsController < ApplicationController
       end
     end
   end
+  
+  def fbml
+    render :layout => false
+  end
 
   # DELETE /tabs/1
   # DELETE /tabs/1.xml
